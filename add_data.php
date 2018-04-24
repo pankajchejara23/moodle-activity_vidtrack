@@ -11,9 +11,35 @@ require_once(dirname(__FILE__).'/lib.php');
 
 $record=new stdClass();
 $record->user=$user;
-$record->course=(string)$course;
-$record->name=(string)$video;
-$record->state=$state;
+$record->course=$course;
+$record->video=$video;
+$temp='';
+switch($state){
+	case -1:
+		$temp='unstarted';
+		break;
+	case 0:
+		$temp='ended';
+		break;
+	case 1:
+		$temp='playing';
+		break;
+	case 2:
+		$temp='paused';
+		break;
+	case 3:
+		$temp='buffering';
+		break;
+		
+	case 4:
+		$temp='video cued';
+		break;
+	default:
+		$temp='unrecognized state';
+		break;
+	
+}
+$record->state=$temp;
 $record->time_occurred=date('Y-m-d H:i:s');
 $id=$DB->insert_record('youtube',$record,false);
 	

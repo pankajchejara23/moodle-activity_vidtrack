@@ -58,7 +58,7 @@ class mod_vidtrack_mod_form extends moodleform_mod {
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
-        $mform->addHelpButton('name', 'vidtrackname', 'vidtrack');
+        //$mform->addHelpButton('name', 'vidtrackname', 'vidtrack');
 
         // Adding the standard "intro" and "introformat" fields.
         if ($CFG->branch >= 29) {
@@ -70,8 +70,13 @@ class mod_vidtrack_mod_form extends moodleform_mod {
         // Adding the rest of vidtrack settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
         $mform->addElement('text', 'youtube', get_string('youtube', 'vidtrack'), array('size' => '1000'));
+		if (!empty($CFG->formatstringstriptags)) {
+            $mform->setType('youtube', PARAM_TEXT);
+        } else {
+            $mform->setType('youtube', PARAM_CLEANHTML);
+        }
 		$mform->addRule('name', null, 'required', null, 'client');
-		$mform->addHelpButton('youtube', 'vidtrackname', 'Enter youtube url');
+		//$mform->addHelpButton('youtube', 'vidtrackname', 'vidtrack');
         
         // Add standard elements, common to all modules.
         $this->standard_coursemodule_elements();

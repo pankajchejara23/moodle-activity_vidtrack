@@ -83,7 +83,7 @@ function vidtrack_add_instance(stdClass $vidtrack, mod_vidtrack_mod_form $mform 
 
     $vidtrack->id = $DB->insert_record('vidtrack', $vidtrack);
 
-    vidtrack_grade_item_update($vidtrack);
+    //vidtrack_grade_item_update($vidtrack);
 
     return $vidtrack->id;
 }
@@ -109,7 +109,7 @@ function vidtrack_update_instance(stdClass $vidtrack, mod_vidtrack_mod_form $mfo
 
     $result = $DB->update_record('vidtrack', $vidtrack);
 
-    vidtrack_grade_item_update($vidtrack);
+    //vidtrack_grade_item_update($vidtrack);
 
     return $result;
 }
@@ -166,7 +166,7 @@ function vidtrack_delete_instance($id) {
 
     $DB->delete_records('vidtrack', array('id' => $vidtrack->id));
 
-    vidtrack_grade_item_delete($vidtrack);
+   // vidtrack_grade_item_delete($vidtrack);
 
     return true;
 }
@@ -327,32 +327,7 @@ function vidtrack_scale_used_anywhere($scaleid) {
  * @param bool $reset reset grades in the gradebook
  * @return void
  */
-function vidtrack_grade_item_update(stdClass $vidtrack, $reset=false) {
-    global $CFG;
-    require_once($CFG->libdir.'/gradelib.php');
 
-    $item = array();
-    $item['itemname'] = clean_param($vidtrack->name, PARAM_NOTAGS);
-    $item['gradetype'] = GRADE_TYPE_VALUE;
-
-    if ($vidtrack->grade > 0) {
-        $item['gradetype'] = GRADE_TYPE_VALUE;
-        $item['grademax']  = $vidtrack->grade;
-        $item['grademin']  = 0;
-    } else if ($vidtrack->grade < 0) {
-        $item['gradetype'] = GRADE_TYPE_SCALE;
-        $item['scaleid']   = -$vidtrack->grade;
-    } else {
-        $item['gradetype'] = GRADE_TYPE_NONE;
-    }
-
-    if ($reset) {
-        $item['reset'] = true;
-    }
-
-    grade_update('mod/vidtrack', $vidtrack->course, 'mod', 'vidtrack',
-            $vidtrack->id, 0, null, $item);
-}
 
 /**
  * Delete grade item for given vidtrack instance
@@ -360,13 +335,6 @@ function vidtrack_grade_item_update(stdClass $vidtrack, $reset=false) {
  * @param stdClass $vidtrack instance object
  * @return grade_item
  */
-function vidtrack_grade_item_delete($vidtrack) {
-    global $CFG;
-    require_once($CFG->libdir.'/gradelib.php');
-
-    return grade_update('mod/vidtrack', $vidtrack->course, 'mod', 'vidtrack',
-            $vidtrack->id, 0, null, array('deleted' => 1));
-}
 
 /**
  * Update vidtrack grades in the gradebook
@@ -376,15 +344,7 @@ function vidtrack_grade_item_delete($vidtrack) {
  * @param stdClass $vidtrack instance object with extra cmidnumber and modname property
  * @param int $userid update grade of specific user only, 0 means all participants
  */
-function vidtrack_update_grades(stdClass $vidtrack, $userid = 0) {
-    global $CFG, $DB;
-    require_once($CFG->libdir.'/gradelib.php');
 
-    // Populate array of grade objects indexed by userid.
-    $grades = array();
-
-    grade_update('mod/vidtrack', $vidtrack->course, 'mod', 'vidtrack', $vidtrack->id, 0, $grades);
-}
 
 /* File API */
 

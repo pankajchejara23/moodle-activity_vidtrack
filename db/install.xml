@@ -29,9 +29,9 @@
 <FIELDS>
 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
 <FIELD NAME="user" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
-<FIELD NAME="course" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
-<FIELD NAME="name" TYPE="char" LENGTH="1000" NOTNULL="false" SEQUENCE="false"/>
-<FIELD NAME="state" TYPE="number" LENGTH="10" NOTNULL="false" SEQUENCE="false" DECIMALS="0"/>
+<FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="video" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+<FIELD NAME="state" TYPE="text" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
 <FIELD NAME="time_occurred" TYPE="char" LENGTH="100" NOTNULL="false" SEQUENCE="false"/>
 </FIELDS>
 <KEYS>
