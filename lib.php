@@ -25,7 +25,7 @@
  * Moodle is performing actions across all modules.
  *
  * @package    mod_vidtrack
- * @copyright  2016 Your Name <your@email.address>
+ * @copyright  2018 Pankaj Chejara <pankajchejara23@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

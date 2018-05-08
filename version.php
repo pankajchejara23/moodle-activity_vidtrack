@@ -28,7 +28,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_vidtrack';
-$plugin->version = 2015051109.02;
+$plugin->version = 2015051100;
 $plugin->release = 'v0.0';
 $plugin->requires = 2014051200;
 $plugin->dependencies = array();

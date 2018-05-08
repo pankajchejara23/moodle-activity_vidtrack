@@ -21,11 +21,11 @@
  * if you like, and it can span multiple lines.
  *
  * @package    mod_vidtrack
- * @copyright  2016 Your Name <your@email.address>
+ * @copyright  2018 Pankaj Chejara <pankajchejara23@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// Replace vidtrack with the name of your module and remove this line.
+
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/lib.php');
