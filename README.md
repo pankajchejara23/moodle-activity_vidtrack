@@ -1,14 +1,25 @@
-# VidTrack
-`php`
-### Moodle activity plugin to track user's video watching behavior of embedded youtube videos
-VidTrack is a simple activity plugin for Moodle. It simply takes youtube video url and embed it into page by using Youtube iFrame api. This plugin records following video events using same api.
-- Play
-- Pause
-- End
-- Unstarted
-- Buffering
-- Cued
+#VidTrack - Moodle Activity Plugin for YouTube Video Tracking
+VidTrack is a Moodle activity plugin that enables seamless integration of YouTube videos into courses while capturing detailed student interactions. Using the YouTube iFrame API, it embeds videos and records user engagement events for later analysis.
 
-When one of above event occurred, VidTrack store the record in a table youtube ( which is created at the time of installing plugin). This record contain student id, course id, time. This data later can be analyzed to understand student's video watching behavior.
+## Key Features
 
-In this future release, we plan to include visual analytics in it to 
+* **Embed YouTube Videos:** Simply paste a YouTube URL to embed videos in Moodle courses.
+
+* **Track User Interactions:** Captures the following video events: `Play`, `Pause`, `End`,`Unstarted`,`Buffering`, `Cued`
+
+* **Data Storage:** Logs interactions in a dedicated youtube table, including:`Student ID`, `Course ID`, `Timestamp`
+
+* **Exportable Data:** Interaction logs are available in CSV format for further analysis.
+
+📺 Installation Guide Video
+
+For a step-by-step visual guide
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/watch?v=S4yIOdHvaBg" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+  </iframe>
+</div>
